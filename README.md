@@ -6,7 +6,7 @@
 > their masters had need of them. Some even had the ability to grant
 > their owners wishes, much like a *genie*.
 >
-> -- *Wikipedia entry for "Imp"*
+> -- Wikipedia entry for "Imp"
 
 ### Overview
 
