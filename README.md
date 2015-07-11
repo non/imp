@@ -26,8 +26,8 @@ efficient form of this method.
 
 ### Getting Imp
 
-Imp supports Scala 2.10 and 2.11. If you use SBT, you can include
-Sortilege via the following `build.sbt` snippets:
+Imp supports Scala 2.10 and 2.11. If you use SBT, you can include Imp
+via the following `build.sbt` snippets:
 
 ```scala
 libraryDependencies += "org.spire-math" %% "imp" % "0.0.1" % "provided"
