@@ -5,7 +5,8 @@ organization := "org.spire-math"
 scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
-  "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
+  "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
+  "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 )
 
 scalacOptions ++= Seq(
@@ -57,15 +58,3 @@ pomExtra := (
     </developer>
   </developers>
 )
-
-// releaseProcess := Seq[ReleaseStep](
-//   checkSnapshotDependencies,
-//   inquireVersions,
-//   runTest,
-//   setReleaseVersion,
-//   commitReleaseVersion,
-//   tagRelease,
-//   publishSignedArtifacts,
-//   setNextVersion,
-//   commitNextVersion,
-//   pushChanges)
