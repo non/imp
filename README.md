@@ -1,6 +1,12 @@
 ## Imp
 
-> contact with a supernatural agency.
+> Imps have also been described as being *bound* or contained in some
+> sort of object, such as a sword or crystal ball. In other cases,
+> imps were simply kept in a certain object and summoned only when
+> their masters had need of them. Some even had the ability to grant
+> their owners wishes, much like a *genie*.
+>
+> -- *Wikipedia entry for "Imp"*
 
 ### Overview
 
