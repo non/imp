@@ -41,6 +41,8 @@ Here's an example which creates a reversed ordering instance:
 import imp.imp
 
 val reversed = imp[Ordering[Int]].reverse
+// equivalent to: Ordering.Int.reverse
+// better than: implicitly[Ordering[Int]].reverse
 ```
 
 Here's a definition of the `Magma` type class which uses `imp.summon`:
@@ -55,6 +57,7 @@ trait Magma[A] {
 object Magma  {
   def apply[A: Magma]: Magma[A] = summon[Magma[A]]
   // better than: def apply[A](implicit ev: Magma[A]): Magma[A] = ev
+  // (even using @inline and final)
 
   implicit val IntMagma: Magma[Int] =
     new Magma[Int] { def combine(x: A, y: A): A = x + y }
