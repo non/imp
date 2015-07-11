@@ -30,7 +30,7 @@ Imp supports Scala 2.10 and 2.11. If you use SBT, you can include Imp
 via the following `build.sbt` snippets:
 
 ```scala
-libraryDependencies += "org.spire-math" %% "imp" % "0.0.1" % "provided"
+libraryDependencies += "org.spire-math" %% "imp" % "0.1.0" % "provided"
 ```
 
 ### Examples
