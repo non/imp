@@ -36,6 +36,9 @@ libraryDependencies += "org.spire-math" %% "imp" % "0.1.0" % "provided"
 libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
 ```
 
+These dependencies are both *compile-time only* -- there is no runtime
+cost (in jars, size, execution time, etc) imposed by Imp.
+
 ### Examples
 
 Here's an example which creates a reversed ordering instance:
