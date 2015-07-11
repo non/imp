@@ -31,6 +31,9 @@ via the following `build.sbt` snippets:
 
 ```scala
 libraryDependencies += "org.spire-math" %% "imp" % "0.1.0" % "provided"
+
+// if you want to use the imp.summon macro you'll need this too:
+libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
 ```
 
 ### Examples
@@ -49,18 +52,21 @@ Here's a definition of the `Magma` type class which uses `imp.summon`:
 
 ```scala
 import imp.summon
+import language.experimental.macros
 
 trait Magma[A] {
   def combine(x: A, y: A): A
 }
 
 object Magma  {
-  def apply[A: Magma]: Magma[A] = summon[Magma[A]]
+  def apply[A: Magma]: Magma[A] = macro summon[Magma[A]]
   // better than: def apply[A](implicit ev: Magma[A]): Magma[A] = ev
   // (even using @inline and final)
 
   implicit val IntMagma: Magma[Int] =
-    new Magma[Int] { def combine(x: A, y: A): A = x + y }
+    new Magma[Int] {
+      def combine(x: Int, y: Int): Int = x + y
+    }
 }
 
 Magma[Int].combine(3, 4)
