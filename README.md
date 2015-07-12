@@ -24,6 +24,10 @@ an `apply` method on the companion object, to access an implicit type
 class instance. The `summon` macro can be used here to create a more
 efficient form of this method.
 
+([1] By context-bound, I mean declaring a type parameter as
+`[A: Magma]`, which corresponds to `[A]` with an `(implicit ev:
+Magma[A])` parameter also.)
+
 ### Getting Imp
 
 Imp supports Scala 2.10 and 2.11. If you use SBT, you can include Imp
@@ -74,6 +78,7 @@ object Magma  {
 
 Magma[Int].combine(3, 4)
 // equivalent to: Magma.IntMagma.combine(3, 4)
+// also equivalent to: imp[Magma[Int]].combine(3, 4)
 // better than: implicitly[Magma[Int]].combine(3, 4)
 ```
 
