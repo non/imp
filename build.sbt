@@ -4,6 +4,8 @@ organization := "org.spire-math"
 
 scalaVersion := "2.11.7"
 
+crossScalaVersions := Seq("2.10.5", "2.11.7")
+
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
   "org.scalatest" %% "scalatest" % "2.2.4" % "test"
@@ -19,11 +21,9 @@ licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
 homepage := Some(url("http://github.com/non/imp"))
 
-//
-
-crossScalaVersions := Seq("2.10.5", "2.11.7")
-
 unmanagedSourceDirectories in Compile += (sourceDirectory in Compile).value / s"scala_${scalaBinaryVersion.value}"
+
+enablePlugins(ScalaJSPlugin)
 
 // release stuff
 
