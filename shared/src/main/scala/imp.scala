@@ -1,7 +1,8 @@
 package object imp {
 
   import language.experimental.macros
-  import scala.reflect.macros.whitebox.Context
+  //import scala.reflect.macros.whitebox.Context
+  import scala.reflect.macros.Context
 
   /**
    * Summon an implicit parameter with no overhead.
@@ -31,5 +32,6 @@ package object imp {
    *   def apply[A: Monoid]: Monoid[A] = macro summon[Monoid[A]]
    * }
    */
-  def summon[Ev](c: Context)(ev: c.Tree): c.Tree = ev
+  //def summon[Ev](c: Context)(ev: c.Tree): c.Tree = ev
+  def summon[Ev](c: Context)(ev: c.Expr[Ev]): c.Expr[Ev] = ev
 }

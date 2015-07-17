@@ -2,25 +2,23 @@ lazy val root = project.in(file("."))
   .aggregate(impJS, impJVM)
   .settings(publish := {}, publishLocal := {})
 
-lazy val imp = crossProject.in(file(".")).
-  settings(
+lazy val imp = crossProject.in(file("."))
+  .settings(
     name := "imp",
     organization := "org.spire-math",
     scalaVersion := "2.11.7",
     crossScalaVersions := Seq("2.10.5", "2.11.7"),
     libraryDependencies ++= Seq(
       "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
-      "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+      "org.scalatest" %%% "scalatest" % "3.0.0-M7" % "test"
     ),
     scalacOptions ++= Seq(
       "-deprecation",
       "-unchecked",
       "-feature"
     ),
-
     licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
-    homepage := Some(url("http://github.com/non/imp")),
-    unmanagedSourceDirectories in Compile += (sourceDirectory in Compile).value / s"scala_${scalaBinaryVersion.value}")
+    homepage := Some(url("http://github.com/non/imp")))
 
 lazy val impJVM = imp.jvm
 lazy val impJS = imp.js
@@ -31,6 +29,7 @@ releasePublishArtifactsAction := PgpKeys.publishSigned.value
 publishMavenStyle := true
 publishArtifact in Test := false
 pomIncludeRepository := Function.const(false)
+
 publishTo <<= (version).apply { v =>
   val nexus = "https://oss.sonatype.org/"
   if (v.trim.endsWith("SNAPSHOT"))
@@ -38,6 +37,7 @@ publishTo <<= (version).apply { v =>
   else
     Some("Releases" at nexus + "service/local/staging/deploy/maven2")
 }
+
 pomExtra := (
   <scm>
     <url>git@github.com:non/imp.git</url>

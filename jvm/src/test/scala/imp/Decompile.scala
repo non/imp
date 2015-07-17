@@ -9,7 +9,7 @@ object Decompile {
   val Line = """^    ( *[0-9]+.+)$""".r
   val Empty = """^ *$""".r
 
-  val ClassPath = "target/scala-2.11/test-classes"
+  val ClassPath = "jvm/target/scala-2.11/test-classes"
 
   def decompile(cls: String, cp: String = ClassPath): Map[String, String] = {
     val output = Seq("javap", "-c", "-classpath", cp, "imp.Methods").!!
