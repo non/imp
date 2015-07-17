@@ -1,12 +1,6 @@
 import ReleaseTransformations._
 
-lazy val root = project.in(file("."))
-  .aggregate(impJS, impJVM)
-  .settings(publish := {}, publishLocal := {}, publishArtifact := false)
-
-lazy val imp = crossProject.in(file("."))
-  .settings(
-    name := "imp",
+lazy val impSettings = Seq(
     organization := "org.spire-math",
     scalaVersion := "2.11.7",
     crossScalaVersions := Seq("2.10.5", "2.11.7"),
@@ -59,6 +53,20 @@ lazy val imp = crossProject.in(file("."))
       commitNextVersion,
       pushChanges))
 
+lazy val noPublish = Seq(
+  publish := {},
+  publishLocal := {},
+  publishArtifact := false)
+
+lazy val root = project.in(file("."))
+  .aggregate(impJS, impJVM)
+  .settings(name := "imp-root")
+  .settings(impSettings: _*)
+  .settings(noPublish: _*)
+
+lazy val imp = crossProject.in(file("."))
+  .settings(name := "imp")
+  .settings(impSettings: _*)
+
 lazy val impJVM = imp.jvm
 lazy val impJS = imp.js
-
