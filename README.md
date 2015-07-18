@@ -30,11 +30,11 @@ Magma[A])` parameter also.)
 
 ### Getting Imp
 
-Imp supports Scala 2.10 and 2.11. If you use SBT, you can include Imp
-via the following `build.sbt` snippets:
+Imp supports Scala 2.10 and 2.11 (as well as Scala.js). If you use
+SBT, you can include Imp via the following `build.sbt` snippets:
 
 ```scala
-libraryDependencies += "org.spire-math" %% "imp" % "0.1.0" % "provided"
+libraryDependencies += "org.spire-math" %% "imp" % "0.2.0" % "provided"
 
 // if you want to use the imp.summon macro you'll need this too:
 libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
