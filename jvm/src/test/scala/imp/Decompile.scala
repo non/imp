@@ -3,13 +3,13 @@ package imp
 import scala.collection.mutable.ArrayBuffer
 import scala.sys.process._
 
-object Decompile {
+trait DecompileBase {
 
   val Prototype = """^  public .+ ([^ ]+)\(.+\);$""".r
   val Line = """^    ( *[0-9]+.+)$""".r
   val Empty = """^ *$""".r
 
-  val ClassPath = "jvm/target/scala-2.11/test-classes"
+  def ClassPath: String
 
   def decompile(cls: String, cp: String = ClassPath): Map[String, String] = {
     val output = Seq("javap", "-c", "-classpath", cp, "imp.Methods").!!
