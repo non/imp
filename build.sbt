@@ -3,7 +3,7 @@ import ReleaseTransformations._
 lazy val impSettings = Seq(
   organization := "org.spire-math",
   scalaVersion := "2.11.7",
-  crossScalaVersions := Seq("2.10.5", "2.11.7"),
+  crossScalaVersions := Seq("2.10.6", "2.11.7"),
   libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
     "org.scalatest" %%% "scalatest" % "3.0.0-M7" % "test"
