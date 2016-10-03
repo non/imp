@@ -3,7 +3,7 @@ import ReleaseTransformations._
 lazy val impSettings = Seq(
   organization := "org.spire-math",
   scalaVersion := "2.11.7",
-  crossScalaVersions := Seq("2.10.5", "2.11.7"),
+  crossScalaVersions := Seq("2.10.6", "2.11.7"),
   libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
     "org.scalatest" %%% "scalatest" % "3.0.0-M7" % "test"
@@ -22,13 +22,7 @@ lazy val impSettings = Seq(
   publishMavenStyle := true,
   publishArtifact in Test := false,
   pomIncludeRepository := Function.const(false),
-  publishTo <<= (version).apply { v =>
-    val nexus = "https://oss.sonatype.org/"
-    if (v.trim.endsWith("SNAPSHOT"))
-      Some("Snapshots" at nexus + "content/repositories/snapshots")
-    else
-      Some("Releases" at nexus + "service/local/staging/deploy/maven2")
-  },
+  publishTo := Some(if (isSnapshot.value) Opts.resolver.sonatypeSnapshots else Opts.resolver.sonatypeStaging),
   pomExtra := (
     <scm>
       <url>git@github.com:non/imp.git</url>
