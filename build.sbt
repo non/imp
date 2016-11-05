@@ -2,11 +2,11 @@ import ReleaseTransformations._
 
 lazy val impSettings = Seq(
   organization := "org.spire-math",
-  scalaVersion := "2.11.7",
-  crossScalaVersions := Seq("2.10.5", "2.11.7"),
+  scalaVersion := "2.11.8",
+  crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.0"),
   libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
-    "org.scalatest" %%% "scalatest" % "3.0.0-M7" % "test"
+    "org.scalatest" %%% "scalatest" % "3.0.0" % "test"
   ),
   scalacOptions ++= Seq(
     "-deprecation",
@@ -46,11 +46,11 @@ lazy val impSettings = Seq(
     checkSnapshotDependencies,
     inquireVersions,
     runClean,
-    ReleaseStep(action = Command.process("package", _)),
+    ReleaseStep(action = Command.process("+package", _)),
     setReleaseVersion,
     commitReleaseVersion,
     tagRelease,
-    ReleaseStep(action = Command.process("publishSigned", _)),
+    publishArtifacts,
     setNextVersion,
     commitNextVersion,
     ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
