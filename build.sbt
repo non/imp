@@ -46,7 +46,7 @@ lazy val impSettings = Seq(
     checkSnapshotDependencies,
     inquireVersions,
     runClean,
-    ReleaseStep(action = Command.process("+package", _)),
+    ReleaseStep(action = Command.process("+test", _)),
     setReleaseVersion,
     commitReleaseVersion,
     tagRelease,
