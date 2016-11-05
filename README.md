@@ -30,11 +30,11 @@ Magma[A])` parameter also.)
 
 ### Getting Imp
 
-Imp supports Scala 2.10 and 2.11 (as well as Scala.js). If you use
-SBT, you can include Imp via the following `build.sbt` snippets:
+Imp supports Scala 2.10, 2.11, and 2.12 (as well as Scala.js). If you
+use SBT, you can include Imp via the following `build.sbt` snippets:
 
 ```scala
-libraryDependencies += "org.spire-math" %% "imp" % "0.2.1" % "provided"
+libraryDependencies += "org.spire-math" %% "imp" % "0.3.0" % "provided"
 
 // if you want to use the imp.summon macro you'll need this too:
 libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
@@ -82,10 +82,17 @@ Magma[Int].combine(3, 4)
 // better than: implicitly[Magma[Int]].combine(3, 4)
 ```
 
+### Known Issues
+
+Dmitry Petrashko has argued persuasively that modern Hotspot
+optimizations mean that Imp is unnecessary. See the
+[imp-bench](https://github.com/DarkDimius/imp-bench) repository for
+more information on his benchmarks.
+
 ### Copyright and License
 
 All code is available to you under the MIT license, available at
 http://opensource.org/licenses/mit-license.php and also in the
 [COPYING](COPYING) file.
 
-Copyright Erik Osheim, 2015.
+Copyright Erik Osheim, 2016.
