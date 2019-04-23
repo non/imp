@@ -3,8 +3,8 @@ import sbtcrossproject.CrossPlugin.autoImport.crossProject
 
 lazy val impSettings = Seq(
   organization := "org.spire-math",
-  scalaVersion := "2.11.8",
-  crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.0"),
+  scalaVersion := crossScalaVersions.value.last,
+  crossScalaVersions := Seq("2.10.6", "2.11.12", "2.12.8"),
   libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
     "org.scalatest" %%% "scalatest" % "3.0.0" % "test"
