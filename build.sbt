@@ -1,12 +1,13 @@
 import ReleaseTransformations._
+import sbtcrossproject.CrossPlugin.autoImport.crossProject
 
 lazy val impSettings = Seq(
   organization := "org.spire-math",
-  scalaVersion := "2.11.8",
-  crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.0"),
+  scalaVersion := crossScalaVersions.value.last,
+  crossScalaVersions := Seq("2.10.6", "2.11.12", "2.12.8", "2.13.0-RC1"),
   libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided",
-    "org.scalatest" %%% "scalatest" % "3.0.0" % "test"
+    "org.scalatest" %%% "scalatest" % "3.0.8-RC2" % "test"
   ),
   scalacOptions ++= Seq(
     "-deprecation",
@@ -22,13 +23,12 @@ lazy val impSettings = Seq(
   publishMavenStyle := true,
   publishArtifact in Test := false,
   pomIncludeRepository := Function.const(false),
-  publishTo <<= (version).apply { v =>
-    val nexus = "https://oss.sonatype.org/"
-    if (v.trim.endsWith("SNAPSHOT"))
-      Some("Snapshots" at nexus + "content/repositories/snapshots")
+  publishTo := Some(
+    if(isSnapshot.value)
+      Opts.resolver.sonatypeSnapshots
     else
-      Some("Releases" at nexus + "service/local/staging/deploy/maven2")
-  },
+      Opts.resolver.sonatypeStaging
+  ),
   pomExtra := (
     <scm>
       <url>git@github.com:non/imp.git</url>
@@ -67,7 +67,7 @@ lazy val root = project.in(file("."))
   .settings(impSettings: _*)
   .settings(noPublish: _*)
 
-lazy val imp = crossProject.in(file("."))
+lazy val imp = crossProject(JSPlatform, JVMPlatform).in(file("."))
   .settings(name := "imp")
   .settings(impSettings: _*)
 
