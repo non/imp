@@ -34,7 +34,7 @@ Imp supports Scala 2.10, 2.11, and 2.12 (as well as Scala.js). If you
 use SBT, you can include Imp via the following `build.sbt` snippets:
 
 ```scala
-libraryDependencies += "org.spire-math" %% "imp" % "0.3.0" % "provided"
+libraryDependencies += "org.spire-math" %% "imp" % "0.4.0" % "provided"
 
 // if you want to use the imp.summon macro you'll need this too:
 libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value % "provided"
@@ -89,10 +89,20 @@ optimizations mean that Imp is unnecessary. See the
 [imp-bench](https://github.com/DarkDimius/imp-bench) repository for
 more information on his benchmarks.
 
+More recently, Gabriel Volpe wrote some
+[benchmarks](https://gvolpe.github.io/blog/context-bound-vs-implicit-evidence/)
+which did find a difference between using `implicitly` and `imp` (and
+which also discusses some interesting compiler flags to try).
+
+### Maintainers
+
+ * [Erik Osheim](https://github.com/non)
+ * [Nicolas Rinaudo](https://github.com/nrinaudo)
+
 ### Copyright and License
 
 All code is available to you under the MIT license, available at
 http://opensource.org/licenses/mit-license.php and also in the
 [COPYING](COPYING) file.
 
-Copyright Erik Osheim, 2016.
+Copyright Erik Osheim, 2016-2019.
