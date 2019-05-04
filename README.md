@@ -111,4 +111,8 @@ All code is available to you under the MIT license, available at
 http://opensource.org/licenses/mit-license.php and also in the
 [COPYING](COPYING) file.
 
+### Code of Conduct
+
+See the [Code of Conduct](CODE_OF_CONDUCT.md)
+
 Copyright Erik Osheim, 2016-2019.
