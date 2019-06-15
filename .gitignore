@@ -12,4 +12,6 @@ TAGS
 .idea
 .idea/*
 .idea_modules
+.bloop
+.metals
 .DS_Store
