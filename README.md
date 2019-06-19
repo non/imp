@@ -30,7 +30,7 @@ Magma[A])` parameter also.)
 
 ### Getting Imp
 
-Imp supports Scala 2.10, 2.11, 2.12, and 2.13.0-RC1. If you use SBT,
+Imp supports Scala 2.10, 2.11, 2.12, and 2.13. If you use SBT,
 you can include Imp via the following `build.sbt` snippets:
 
 ```scala
