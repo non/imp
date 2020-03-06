@@ -1,8 +1,9 @@
 package imp
 
-import org.scalatest._
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.propspec.AnyPropSpec
 
-class BytecodeTest extends PropSpec with Matchers {
+class BytecodeTest extends AnyPropSpec with Matchers {
 
   val b = Decompile.decompile("imp.Methods")
 
